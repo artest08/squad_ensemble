@@ -19,6 +19,8 @@ def load(load_name, model):
     load_location = os.path.join("./model_files", load_name)
     checkpoint = torch.load(load_location, map_location='cpu')
     model.load_state_dict(checkpoint['model_state_dict'])
+    best_validation_loss = checkpoint['best_loss']
+    print(f'the best validation loss is loaded: {best_validation_loss}')
 
 
 def model_outputs(model_to_out, batch):
@@ -31,7 +33,7 @@ def model_outputs(model_to_out, batch):
     return outputs
 
 
-def train_loop(loader, model_in_loop, optimizer):
+def train_loop(loader, model_in_loop, optimizer, scheduler):
     loss_list = []
     model_in_loop.train()
     for batch in loader:
@@ -42,6 +44,7 @@ def train_loop(loader, model_in_loop, optimizer):
         # metric.add_batch(predictions=outputs, references=references)
         loss.backward()
         optimizer.step()
+        scheduler.step()
     mean_loss = np.mean(loss_list)
     print(f'mean epoch loss training: {mean_loss}')
     return mean_loss
