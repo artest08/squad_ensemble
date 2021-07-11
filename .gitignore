@@ -1,0 +1,31 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+*.pth
+*.json
+*.txt
+*.log
+*.yaml
+*.wandb
+*.png
+*.pyc
+*.xml
+*.iml
+model_files/albert.pth_0
+model_files/albert.pth_1
+model_files/distilbert.pth_0
+model_files/distilbert.pth_1
+model_files/distilbert.pth_2
+model_files/distilbert.pth_3
+model_files/distilbert.pth_4
+model_files/distilbert.pth_5
+model_files/distilbert.pth_6
+model_files/distilbert.pth_7
+model_files/distilbert.pth_8
+model_files/distilbert.pth_9
+wandb/latest-run
